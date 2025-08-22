@@ -1,9 +1,10 @@
 {% extends 'HRservices/layout.html' %}
+{% load static %}
 
 {% block content %}
 <header>
     <br>
-    <img src="HRservices/static/HRservices/media/logo.png" alt="Logo" style="width: auto; height: 150px; align-self: center; display: block; margin: 0 auto;">
+    <img src="{% static 'HRservices/media/logo.png' %}" alt="Logo" style="width: auto; height: 150px; align-self: center; display: block; margin: 0 auto;">
 </header>
 <br>
 
@@ -23,13 +24,13 @@
 <div id="homepageCarousel" class="carousel slide mb-5" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="HRservices/static/HRservices/media/carousel1.jpg" class="d-block mx-auto" alt="STEM Job Opportunities" style="max-height: 400px; width: auto; object-fit: cover;">
+      <img src="{% static 'HRservices/media/carousel1.jpg' %}" class="d-block mx-auto" alt="STEM Job Opportunities" style="max-height: 400px; width: auto; object-fit: cover;">
     </div>
     <div class="carousel-item">
-      <img src="HRservices/static/HRservices/media/carousel2.jpg" class="d-block mx-auto" alt="Innovative Workspaces" style="max-height: 400px; width: auto; object-fit: cover;">
+      <img src="{% static 'HRservices/media/carousel2.jpg' %}" class="d-block mx-auto" alt="Innovative Workspaces" style="max-height: 400px; width: auto; object-fit: cover;">
     </div>
     <div class="carousel-item">
-      <img src="HRservices/static/HRservices/media/carousel3.jpg" class="d-block mx-auto" alt="Global Talent Network" style="max-height: 400px; width: auto; object-fit: cover;">
+      <img src="{% static 'HRservices/media/carousel3.jpg' %}" class="d-block mx-auto" alt="Global Talent Network" style="max-height: 400px; width: auto; object-fit: cover;">
     </div>
   </div>
 
@@ -88,15 +89,15 @@
   </div>
 </section>
 
-<!-- ✅ Footer -->
+<!-- Footer -->
 <footer style="background-color: #000; color: #fff; padding: 10px 0; text-align: center;">
     <h4>
         <br>
         <a href="https://in.linkedin.com/" target="_blank" style="color: #fff; text-decoration: none; display: inline-flex; align-items: center;">
-            <img src="HRservices/static/HRservices/media/linkedin.svg" alt="LinkedIn" style="height: 30px; width: 30px; vertical-align: middle; margin-right: 6px; filter: invert(1);" />
+            <img src="{% static 'HRservices/media/linkedin.svg' %}" alt="LinkedIn" style="height: 30px; width: 30px; vertical-align: middle; margin-right: 6px; filter: invert(1);" />
         </a>
         <a href="mailto:rosh.editzz@gmail.com" target="_blank" style="color: #fff; text-decoration: none; display: inline-flex; align-items: center;">
-            <img src="HRservices/static/HRservices/media/mail.png" alt="Email" style="height: 30px; width: 30px; vertical-align: middle; margin-right: 6px ; filter: invert(1);" />   
+            <img src="{% static 'HRservices/media/mail.png' %}" alt="Email" style="height: 30px; width: 30px; vertical-align: middle; margin-right: 6px ; filter: invert(1);" />
         </a>
     </h4>
     <p style="margin-top: 10px;"><small>Copyright 2025 &copy; STEM HR Services</small></p>
