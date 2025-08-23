@@ -2,17 +2,33 @@
 {% load static %}
 
 {% block content %}
-<header>
-    <br>
-    <img src="{% static 'HRservices/media/logo.png' %}" alt="Logo" style="width: auto; height: 150px; align-self: center; display: block; margin: 0 auto;">
+<header class="py-4">
+    <style>
+    img {
+        max-width: 400px;
+        height: auto;
+    }
+
+    .logo-img {
+        height: 150px;
+    }
+    </style>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <img src="{% static 'HRservices/media/logo.png' %}" alt="Logo" class="logo-img">
+            </div>
+        </div>
+    </div>
 </header>
 <br>
 
 <section class="py-5 text-center">
   <div class="container">
-    <h1 class="display-4">Welcome to STEM HR Services</h1>
+    <h1 class="display-4"><b>Welcome to STEM HR Services</b></h1>
     <br>
-    <p class="lead"><b>Find your next adventure here!</b></p>
+    <p class="lead"><b><i>Find your next adventure here!</i></b></p>
     <p class="lead mt-3">
       Connecting top STEM talent with innovative employers. Whether you're a recent graduate or a seasoned professional, we help you take the next step in your career.
     </p>
