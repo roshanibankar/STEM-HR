@@ -23,13 +23,17 @@ def contact(request):
 
 def apply_job(request, job_id):
     job = get_object_or_404(Job, pk=job_id)
+
     if request.method == 'POST':
         form = ApplicationForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            application = form.save(commit=False)
+            application.job = job  # 👈 Assign job before saving
+            application.save()
             return redirect('job_list')
     else:
-        form = ApplicationForm(initial={'job': job})
+        form = ApplicationForm()
+
     return render(request, 'HRservices/job_detail.html', {'form': form, 'job': job})
 
 
