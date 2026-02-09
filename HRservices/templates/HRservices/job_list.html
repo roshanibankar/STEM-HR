@@ -1,90 +1,27 @@
 {% extends 'HRservices/layout.html' %}
 
 {% block content %}
-<style>
-    body {
-        font-family: 'Segoe UI', Arial, sans-serif;
-        background-color: #ffffff;
-        margin: 0;
-        padding: 0;
-    }
+<!-- Full-width container -->
+<div class="w-full bg-gradient-to-r from-orange-500 to-orange-600 py-12">
+    <!-- Title and Total Jobs Section -->
+    <div class="max-w-7xl mx-auto text-center text-white mb-12">
+        <h1 class="text-5xl font-extrabold tracking-tight mb-6">Explore Our Job Openings</h1>
+        <p class="text-xl">We currently have <span class="font-semibold">{{ jobs|length }}</span> open positions waiting for you!</p>
+    </div>
 
-    .job-list-container {
-        max-width: 800px;
-        margin: 40px auto;
-        padding: 20px;
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 30px;
-    }
-
-    .job-count {
-        text-align: center;
-        color: #666;
-        margin-bottom: 20px;
-    }
-
-    .job-card {
-        border: 1px solid #e0e0e0;
-        border-radius: 6px;
-        padding: 15px 20px;
-        margin-bottom: 20px;
-        background-color: #fafafa;
-        transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .job-card:hover {
-        transform: scale(1.01);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-
-    .job-title {
-        color: #2c3e50;
-        margin: 0;
-        font-size: 1.4rem;
-    }
-
-    .job-meta {
-        color: #555;
-        font-size: 0.95rem;
-        margin: 5px 0 10px;
-    }
-
-    .job-description {
-        color: #444;
-        font-size: 1rem;
-        line-height: 1.5;
-    }
-
-    .no-jobs {
-        text-align: center;
-        font-style: italic;
-        color: #888;
-    }
-</style>
-
-<div class="job-list-container">
-    <h1>Available Job Openings</h1>
-    <p class="job-count">Total jobs: {{ jobs|length }}</p>
-
-    {% for job in jobs %}
-        <div class="job-card">
-            <h2 class="job-title">{{ job.title }}</h2>
-            <p class="job-meta"><strong>Location:</strong> {{ job.location }}</p>
-            <p class="job-description">{{ job.description }}</p>
-            <p class="job-meta"><em>Posted on: {{ job.posted_on }}</em></p>
-            <a href="{% url 'job_apply' job.id %}"  class="apply-button">Apply Now</a>
-
-        
-        </div>
-    {% empty %}
-        <p class="no-jobs">No jobs available right now.</p>
-    {% endfor %}
+    <!-- Job Cards Section -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto px-6 md:px-12">
+        {% for job in jobs %}
+            <div class="bg-white rounded-lg p-6 shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl hover:border-orange-500 hover:shadow-orange-500/30">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">{{ job.title }}</h2>
+                <p class="text-lg text-gray-600 mb-4"><strong>Location:</strong> {{ job.location }}</p>
+                <p class="text-base text-gray-700 mb-6">{{ job.description|truncatewords:25 }}</p>
+                <p class="text-sm text-gray-500"><em>Posted on: {{ job.posted_on }}</em></p>
+                <a href="{% url 'job_apply' job.id %}" class="inline-block bg-orange-600 text-white py-3 px-6 rounded-full mt-6 hover:bg-orange-700 transition-all transform hover:scale-105">Apply Now</a>
+            </div>
+        {% empty %}
+            <p class="text-center italic text-gray-400 mt-8">No jobs available right now. Check back soon!</p>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

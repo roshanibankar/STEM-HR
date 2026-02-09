@@ -2,49 +2,114 @@
 {% load static %}
 
 {% block content %}
-<style>
-.contact-container {
-    max-width: 700px;
-    margin: 40px auto;
-    background: #fff;
-    border-radius: 12px;
-    padding: 32px 40px 32px 40px;
-    font-family: 'Segoe UI', Arial, sans-serif;
-}
+<div class="w-full max-w-6xl mx-auto py-16 px-6 sm:px-12">
+    <h2 class="text-4xl font-bold text-center text-orange-600 mb-12">Career Journey</h2>
 
-.contact-container h2 {
-    color: #2d3a4b;
-    margin-bottom: 18px;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-</style>
+    <!-- Timeline -->
+    <div class="relative">
+        <!-- Timeline Events -->
+        <div class="space-y-20 relative">
+            <!-- Event 1: Founder & Director -->
+            <div class="flex items-start">
+                <!-- Box -->
+                <div class="flex-1 p-6 bg-white rounded-lg shadow-xl border-2 border-gray-200 hover:border-orange-600 transition-all">
+                    <h3 class="text-2xl font-semibold text-gray-800">Founder & Director</h3>
+                    <p class="text-orange-600 mt-2">STEM Executive Search</p>
+                    <p class="text-sm text-gray-500 mt-2"><strong>Feb 2019 - Present</strong> · <span class="text-gray-700">7 years 1 month</span></p>
+                    <p class="text-gray-600 mt-4">Leading a recruitment agency focused on providing specialized STEM talent, with a particular emphasis on R&D, Plant Operations, Quality, Regulatory, and other technical roles within the Pharma, Biotech, Chemical, FMCG, and Polymer sectors.</p>
+                </div>
+                <!-- Image (with added margin-right) -->
+                <div class="w-1/3 ml-8">
+                    <img src="{% static 'HRservices/media/aboutus.jpg' %}" alt="Founder & Director" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+            </div>
 
-<div class="contact-container">
+            <!-- Timeline Line: Positioned between events -->
+            <div class="w-1 bg-orange-600 h-16 mx-auto"></div>
 
-    <h2>Our Story</h2>
-    <img src="{% static 'HRservices/media/aboutus.jpg' %}" alt="Mia Conrads" style="width:100%; border-radius:8px; margin-bottom:20px;">
-    
-    <p>
-        STEM HR Services began with one woman’s vision and a simple belief that great people deserve to be discovered.
-        Our founder, <strong>Mia Conrads</strong>, started her career as an engineer in a competitive, male-dominated industry. Despite her qualifications, she faced countless closed doors, underestimated not because of her ability, but because of how the system overlooked true potential.
-    </p>
+            <!-- Event 2: Lead Consultant -->
+            <div class="flex items-start flex-row-reverse">
+                <!-- Box -->
+                <div class="flex-1 p-6 bg-white rounded-lg shadow-xl border-2 border-gray-200 hover:border-orange-600 transition-all">
+                    <h3 class="text-2xl font-semibold text-gray-800">Lead Consultant</h3>
+                    <p class="text-orange-600 mt-2">Kelly Scientific Resources</p>
+                    <p class="text-sm text-gray-500 mt-2"><strong>Sep 2010 - Feb 2019</strong> · <span class="text-gray-700">8 years 6 months</span></p>
+                    <p class="text-gray-600 mt-4">Led a team providing recruitment services for technical roles in the Pharma, Biotech, Chemical, FMCG, and Polymer sectors. Managed client relationships and oversaw the hiring of key positions for R&D, Operations, and Quality functions.</p>
+                </div>
+                <!-- Image (with added margin-left) -->
+                <div class="w-1/3 mr-8">
+                    <img src="{% static 'HRservices/media/team.jpg' %}" alt="Lead Consultant" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+            </div>
 
-    <p>
-        After years of navigating the STEM world, she realized that the issue wasn't a lack of talent it was a gap in how companies searched for it. Mia decided to change that.
-        She left her corporate role and poured her savings, heart, and sleepless nights into building a platform that didn’t just fill positions it opened doors.
-    </p>
-    
-    <img src="{% static 'HRservices/media/team.jpg' %}" alt="Our Team" style="width:100%; border-radius:8px; margin: 24px 0 20px 0;">
+            <!-- Timeline Line: Positioned between events -->
+            <div class="w-1 bg-orange-600 h-16 mx-auto"></div>
 
-    <p>
-        What started at her kitchen table with a notebook and a borrowed laptop is now a growing team committed to connecting diverse STEM professionals with companies who value them.
-        Today, STEM HR Services has helped hundreds of job seekers find their purpose and helped companies build teams that innovate with integrity.
-    </p>
+            <!-- Event 3: Team Leader -->
+            <div class="flex items-start">
+                <!-- Box -->
+                <div class="flex-1 p-6 bg-white rounded-lg shadow-xl border-2 border-gray-200 hover:border-orange-600 transition-all">
+                    <h3 class="text-2xl font-semibold text-gray-800">Team Leader - Recruitment</h3>
+                    <p class="text-orange-600 mt-2">Jerry Varghese Global Executive Search</p>
+                    <p class="text-sm text-gray-500 mt-2"><strong>Apr 2008 - Sep 2010</strong> · <span class="text-gray-700">2 years 6 months</span></p>
+                    <p class="text-gray-600 mt-4">Focused on recruitment within the Petrochemical and Oil & Gas sectors, specifically catering to Middle Eastern clients. Led the recruitment team and handled key client accounts for various technical roles.</p>
+                </div>
+                <!-- Image (with added margin-right) -->
+                <div class="w-1/3 ml-8">
+                    <img src="{% static 'HRservices/media/aboutus.jpg' %}" alt="Team Leader" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+            </div>
 
-    <p>
-        Our mission remains simple: <em>Champion people. Match passion with opportunity. </em>
-    </p>
+            <!-- Timeline Line: Positioned between events -->
+            <div class="w-1 bg-orange-600 h-16 mx-auto"></div>
+
+            <!-- Event 4: Research & Technical Operations -->
+            <div class="flex items-start flex-row-reverse">
+                <!-- Box -->
+                <div class="flex-1 p-6 bg-white rounded-lg shadow-xl border-2 border-gray-200 hover:border-orange-600 transition-all">
+                    <h3 class="text-2xl font-semibold text-gray-800">Research & Technical Operations</h3>
+                    <p class="text-orange-600 mt-2">Pharmaceutical, Chemical Industry</p>
+                    <p class="text-sm text-gray-500 mt-2"><strong>Jan 2000 - Mar 2008</strong> · <span class="text-gray-700">8 years 3 months</span></p>
+                    <p class="text-gray-600 mt-4">Worked in Research and Development, Plant Operations, and Technical Services for the Pharmaceutical and Chemical industry. Contributed to projects that earned an international patent in the chemical sector.</p>
+                </div>
+                <!-- Image (with added margin-left) -->
+                <div class="w-1/3 mr-8">
+                    <img src="{% static 'HRservices/media/team.jpg' %}" alt="Research & Technical Operations" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+            </div>
+
+            <!-- Timeline Line: Positioned between events -->
+            <div class="w-1 bg-orange-600 h-16 mx-auto"></div>
+
+            <!-- Education Section -->
+            <div class="flex items-start">
+                <!-- Box -->
+                <div class="flex-1 p-6 bg-white rounded-lg shadow-xl border-2 border-gray-200 hover:border-orange-600 transition-all">
+                    <h3 class="text-2xl font-semibold text-gray-800">Education</h3>
+                    <p class="text-orange-600 mt-2">Dr. B.A.M. University</p>
+                    <p class="text-sm text-gray-500 mt-2"><strong>M.Sc. in Chemistry</strong></p>
+                    <p class="text-gray-600 mt-4">Completed a Master of Science in Chemistry, gaining in-depth knowledge of chemical processes and laboratory research techniques.</p>
+                </div>
+                <!-- Image (with added margin-right) -->
+                <div class="w-1/3 ml-8">
+                    <img src="{% static 'HRservices/media/aboutus.jpg' %}" alt="Education" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+            </div>
+
+            <div class="flex items-start flex-row-reverse">
+                <!-- Box -->
+                <div class="flex-1 p-6 bg-white rounded-lg shadow-xl border-2 border-gray-200 hover:border-orange-600 transition-all">
+                    <h3 class="text-2xl font-semibold text-gray-800">Education</h3>
+                    <p class="text-orange-600 mt-2">Indian Institute of Business Management</p>
+                    <p class="text-sm text-gray-500 mt-2"><strong>MBA, HR</strong></p>
+                    <p class="text-gray-600 mt-4">Completed an MBA with a focus on Human Resources, equipping with skills to lead teams and manage recruitment for organizations.</p>
+                </div>
+                <!-- Image (with added margin-left) -->
+                <div class="w-1/3 mr-8">
+                    <img src="{% static 'HRservices/media/team.jpg' %}" alt="MBA Education" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
 {% endblock %}

@@ -6,6 +6,13 @@ class ApplicationForm(forms.ModelForm):
     class Meta:
         model = Application
         fields = '__all__'
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # all fields required
+        for field in self.fields.values():
+            field.required = True
+
 
 class ContactForm(forms.ModelForm):
     class Meta:
