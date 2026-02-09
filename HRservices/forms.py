@@ -13,3 +13,8 @@ class ContactForm(forms.ModelForm):
         fields = '__all__'
 
 
+class ServiceForm(forms.ModelForm):
+    class Meta:
+        model=models.Service
+        fields='__all__'
+

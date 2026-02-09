@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from .forms import ContactForm, ApplicationForm
-from .models import Job, Testimonial
+from .models import Job, Service, Testimonial
 from django.contrib.auth.views import LoginView, LogoutView
 
 
@@ -52,3 +52,9 @@ def home(request):
     testimonials = Testimonial.objects.order_by('-date')[:6]  # latest 6
     return render(request, 'HRservices/home.html', {'testimonials': testimonials})
 
+
+def services_page(request):
+    services = Service.objects.all()
+    return render(request, 'HRservices/services.html', {
+        'services': services
+    })

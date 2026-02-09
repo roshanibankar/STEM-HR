@@ -1,0 +1,18 @@
+{% extends 'HRservices/layout.html' %}
+
+{% block content %}
+<section class="services">
+    <h1>Our Services</h1>
+
+    <div class="services-list">
+        {% for service in services %}
+            <div class="service-card">
+                <h3>{{ service.name }}</h3>
+                <p>{{ service.description }}</p>
+            </div>
+        {% empty %}
+            <p>No services available.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
