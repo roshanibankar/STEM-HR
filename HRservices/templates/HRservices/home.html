@@ -105,6 +105,297 @@
   </div>
 </section>
 
+
+<!-- ===================== CLIENTS SECTION ===================== -->
+<section class="clients-section bg-white text-center py-5">
+
+  <div class="container">
+    <h2 class="mb-4">Our Clients</h2>
+    <p class="lead mb-5">
+      We’re proud to partner with forward-thinking companies across STEM industries.
+    </p>
+
+    <!-- CLIENT LOGOS -->
+    <div class="row justify-content-center align-items-center">
+      <div class="col-6 col-md-3 mb-4">
+        <img src="{% static 'HRservices/media/client1.jpg' %}"
+             class="img-fluid client-trigger"
+             data-target="client-expand-1"
+             alt="Client One">
+      </div>
+
+      <div class="col-6 col-md-3 mb-4">
+        <img src="{% static 'HRservices/media/client2.jpg' %}"
+             class="img-fluid client-trigger"
+             data-target="client-expand-2"
+             alt="Client Two">
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPANDED CLIENT PANELS -->
+  <div class="clients-expanded-wrapper">
+
+    <!-- CLIENT 1 -->
+    <div id="client-expand-1" class="client-expand">
+      <div class="client-content">
+
+        <!-- TEXT -->
+        <div class="client-text">
+          <h3>Client One</h3>
+          <p class="client-subtitle">AI & Robotics Company</p>
+          <p>
+            Delivered end-to-end recruitment for advanced AI and robotics teams,
+            scaling global R&D operations across three continents.
+          </p>
+
+          <ul class="client-stats">
+            <li><strong>120+</strong> Engineers hired</li>
+            <li><strong>40%</strong> Faster hiring</li>
+            <li><strong>2023–Present</strong> Partnership</li>
+          </ul>
+        </div>
+
+        <!-- CAROUSEL -->
+        <div id="carouselClient1"
+             class="carousel slide carousel-fade client-carousel"
+             data-ride="carousel"
+             data-interval="3500">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{% static 'HRservices/media/client1.jpg' %}">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'HRservices/media/client2.jpg' %}">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'HRservices/media/client3.jpg' %}">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CLIENT 2 -->
+    <div id="client-expand-2" class="client-expand">
+      <div class="client-content">
+
+        <!-- TEXT -->
+        <div class="client-text">
+          <h3>Client Two</h3>
+          <p class="client-subtitle">Semiconductor & VLSI</p>
+          <p>
+            Built a high-performance semiconductor engineering team,
+            from graduate pipelines to senior technical leadership.
+          </p>
+
+          <ul class="client-stats">
+            <li><strong>60</strong> VLSI engineers</li>
+            <li><strong>12</strong> Universities</li>
+            <li><strong>Long-term</strong> Growth partner</li>
+          </ul>
+        </div>
+
+        <!-- CAROUSEL -->
+        <div id="carouselClient2"
+             class="carousel slide carousel-fade client-carousel"
+             data-ride="carousel"
+             data-interval="3500">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{% static 'HRservices/media/client1.jpg' %}">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'HRservices/media/client2.jpg' %}">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'HRservices/media/client3.jpg' %}">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ===================== STYLES ===================== -->
+<style>
+.clients-section {
+  position: relative;
+}
+
+.client-trigger {
+  max-height: 140px;
+  cursor: pointer;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.client-trigger:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
+
+/* EXPAND PANEL */
+/* EXPAND PANEL */
+.client-expand {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: #111;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.7s ease, opacity 0.4s ease;
+}
+
+.client-expand.active {
+  max-height: 560px;
+  opacity: 1;
+}
+
+/* CONTENT LAYOUT */
+.client-content {
+  display: grid;
+  grid-template-columns: 38% 62%;
+  min-height: 520px;
+}
+
+/* TEXT PANEL */
+.client-text {
+  color: #fff;
+  padding: 2.5rem;
+  background: #111;
+}
+
+.client-text h3 {
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.client-subtitle {
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+
+.client-text p {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* CAROUSEL */
+.client-carousel img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+}
+
+/* MOBILE */
+@media (max-width: 991px) {
+  .client-content {
+    grid-template-columns: 1fr;
+  }
+
+  .client-carousel img {
+    height: 320px;
+  }
+
+  .client-expand.active {
+    max-height: 820px;
+  }
+}
+
+/* CONTENT LAYOUT */
+.client-content {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  min-height: 700px;
+}
+
+/* TEXT PANEL */
+.client-text {
+  color: #fff;
+  padding: 4rem;
+  background: #111;
+}
+
+.client-text h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.client-subtitle {
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+}
+
+.client-text p {
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.client-stats {
+  list-style: none;
+  padding: 0;
+}
+
+.client-stats li {
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+/* CAROUSEL */
+.client-carousel img {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+}
+
+/* MOBILE */
+@media (max-width: 991px) {
+  .client-content {
+    grid-template-columns: 1fr;
+  }
+
+  .client-text {
+    padding: 2.5rem;
+  }
+
+  .client-carousel img {
+    height: 400px;
+  }
+
+  .client-expand.active {
+    max-height: 1200px;
+  }
+}
+</style>
+
+<!-- ===================== SCRIPT ===================== -->
+<script>
+const triggers = document.querySelectorAll('.client-trigger');
+const panels = document.querySelectorAll('.client-expand');
+
+triggers.forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    const target = document.getElementById(trigger.dataset.target);
+    const isOpen = target.classList.contains('active');
+
+    panels.forEach(panel => panel.classList.remove('active'));
+
+    if (!isOpen) {
+      target.classList.add('active');
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+<!-- ===================== END CLIENTS SECTION ===================== -->
+
+
+
 <!-- Footer -->
 <footer style="background-color: #000; color: #fff; padding: 10px 0; text-align: center;">
     <h4>
@@ -116,7 +407,7 @@
             <img src="{% static 'HRservices/media/mail.png' %}" alt="Email" style="height: 30px; width: 30px; vertical-align: middle; margin-right: 6px ; filter: invert(1);" />
         </a>
     </h4>
-    <p style="margin-top: 10px;"><small>Copyright 2025 &copy; STEM HR Services</small></p>
+    <p style="margin-top: 10px;"><small>Copyright 2026 &copy; STEM HR Services</small></p>
 </footer>
 
 {% endblock %}
