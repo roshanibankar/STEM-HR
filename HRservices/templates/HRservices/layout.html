@@ -1,52 +1,76 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>HR Services</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'HRservices/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Services</title>
 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'HRservices/style.css' %}">
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+<body class="bg-gray-50 font-sans">
 
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto" align="center">
-                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="/jobs/">Jobs</a></li>
-                <li class="nav-item"><a class="nav-link" href="/about/">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="/contact/">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="/services/">Our Services</a></li>
-                {% if user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link" href="/logout/">Logout</a></li>
-                {% else %}
-                    <li class="nav-item"><a class="nav-link" href="/login/">Admin Login</a></li>
-                {% endif %}
-            </ul>
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-xl font-bold text-gray-800">HR Services</div>
+                <div class="lg:hidden">
+                    <button id="nav-toggle" class="text-gray-800 focus:outline-none">☰</button>
+                </div>
+                <div id="nav-menu" class="hidden w-full lg:flex lg:items-center lg:w-auto">
+                    <ul class="lg:flex lg:space-x-6 text-gray-700 mt-4 lg:mt-0">
+                        <li><a href="{% url 'home' %}" class="block py-2 px-3 hover:text-blue-600">Home</a></li>
+                        <li><a href="/jobs/" class="block py-2 px-3 hover:text-blue-600">Jobs</a></li>
+                        <li><a href="/about/" class="block py-2 px-3 hover:text-blue-600">About</a></li>
+                        <li><a href="/contact/" class="block py-2 px-3 hover:text-blue-600">Contact</a></li>
+                        <li><a href="/services/" class="block py-2 px-3 hover:text-blue-600">Our Services</a></li>
+                        {% if user.is_authenticated %}
+                            <li><a href="/logout/" class="block py-2 px-3 hover:text-blue-600">Logout</a></li>
+                        {% else %}
+                            <li><a href="/login/" class="block py-2 px-3 hover:text-blue-600">Admin Login</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
         </div>
     </nav>
 
+    <script>
+    document.getElementById('nav-toggle').addEventListener('click', function(){
+        document.getElementById('nav-menu').classList.toggle('hidden');
+    });
+    </script>
 
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
-    <script src="{% static 'HRservices/script.js' %}"></script>
-
-    <main class="container">
-        <div class="row">
-            <div class="col-12">
-                {% block content %}
-                {% endblock %}
-            </div>
-        </div>
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        {% block content %}
+        {% endblock %}
     </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-8 text-center">
+        <div class="flex justify-center space-x-6 mb-4">
+            <a href="https://in.linkedin.com/" target="_blank">
+                <img src="{% static 'HRservices/media/linkedin.svg' %}" alt="LinkedIn" class="h-8 w-8 invert">
+            </a>
+            <a href="mailto:rosh.editzz@gmail.com" target="_blank">
+                <img src="{% static 'HRservices/media/mail.png' %}" alt="Email" class="h-8 w-8 invert">
+            </a>
+        </div>
+        <p class="text-sm">&copy; 2026 STEM HR Services</p>
+    </footer>
+
+    <!-- Optional JS -->
+    <script src="{% static 'HRservices/script.js' %}"></script>
 </body>
 </html>
-
