@@ -1,1 +1,22 @@
 /resumes
+
+# Environments
+.venv/
+env/
+venv/
+ENV/
+
+# Python clutter
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Database (Don't upload your local test data)
+db.sqlite3
+
+# Secret keys and local settings
+.env
+local_settings.py
+
+# Media (User-uploaded content)
+media/
