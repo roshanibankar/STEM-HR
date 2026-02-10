@@ -2,7 +2,7 @@
 
 {% block content %}
 <!-- Full-width container -->
-<div class="w-full bg-gradient-to-r from-orange-500 to-orange-600 py-12">
+<div class="w-full bg-gradient-to-r from-orange-500 to-orange-500 py-12">
     <!-- Title and Total Jobs Section -->
     <div class="max-w-7xl mx-auto text-center text-white mb-12">
         <h1 class="text-5xl font-extrabold tracking-tight mb-6">Explore Our Job Openings</h1>
@@ -17,7 +17,7 @@
                 <p class="text-lg text-gray-600 mb-4"><strong>Location:</strong> {{ job.location }}</p>
                 <p class="text-base text-gray-700 mb-6">{{ job.description|truncatewords:25 }}</p>
                 <p class="text-sm text-gray-500"><em>Posted on: {{ job.posted_on }}</em></p>
-                <a href="{% url 'job_apply' job.id %}" class="inline-block bg-orange-600 text-white py-3 px-6 rounded-full mt-6 hover:bg-orange-700 transition-all transform hover:scale-105">Apply Now</a>
+                <a href="{% url 'job_apply' job.id %}" class="inline-block bg-orange-500 text-white py-3 px-6 rounded-full mt-6 hover:bg-orange-700 transition-all transform hover:scale-105">Apply Now</a>
             </div>
         {% empty %}
             <p class="text-center italic text-gray-400 mt-8">No jobs available right now. Check back soon!</p>
