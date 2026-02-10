@@ -7,102 +7,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STEM HR Services</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Inter:wght@100;200;300;400&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'HRservices/style.css' %}">
+
+    <style>
+        /* GLOBAL TYPOGRAPHY */
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            color: #000;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, .vogue-serif {
+            font-family: 'Bodoni Moda', serif;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        .slim-caps {
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-size: 0.7rem;
+            font-weight: 200;
+        }
+
+        /* REVEAL ANIMATIONS */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .reveal { opacity: 0; animation: fadeInUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        /* NAV STYLING */
+        .nav-link {
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 11px;
+            transition: all 0.4s ease;
+        }
+        .nav-link:hover { opacity: 0.5; }
+
+        html { scroll-behavior: smooth; }
+    </style>
 </head>
 
-<body class="bg-gray-50 font-sans">
+<body class="bg-[#FCFCFC]">
 
-    <!-- Navbar -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4">
-        <div class="flex justify-between items-center h-16">
-            
-            <a href="{% url 'home' %}" class="text-xl font-bold text-gray-800 hover:text-blue-600 transition duration-300">
-                STEM HR Services
-            </a>
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                
+                <a href="{% url 'home' %}" class="vogue-serif text-2xl tracking-tighter">
+                    STEM HR <span class="italic font-light text-gray-400">Services</span>
+                </a>
 
-            <div class="lg:hidden">
-                <button id="nav-toggle" class="text-gray-800 focus:outline-none p-2 border border-gray-200 rounded-md">
-                    <span id="nav-icon">☰</span>
-                </button>
-            </div>
+                <div class="lg:hidden">
+                    <button id="nav-toggle" class="text-black focus:outline-none p-2">
+                        <span id="nav-icon" class="text-2xl font-light">☰</span>
+                    </button>
+                </div>
 
-            <div id="nav-menu" class="hidden absolute top-16 left-0 w-full bg-white shadow-lg lg:static lg:shadow-none lg:flex lg:items-center lg:w-auto lg:bg-transparent">
-                <ul class="flex flex-col lg:flex-row lg:space-x-6 text-gray-700 p-4 lg:p-0">
-                    <li><a href="{% url 'home' %}" class="block py-2 px-3 border-b lg:border-none hover:text-blue-600">Home</a></li>
-                    <li><a href="/jobs/" class="block py-2 px-3 border-b lg:border-none hover:text-blue-600">Jobs</a></li>
-                    <li><a href="/about/" class="block py-2 px-3 border-b lg:border-none hover:text-blue-600">About</a></li>
-                    <li><a href="/contact/" class="block py-2 px-3 border-b lg:border-none hover:text-blue-600">Contact</a></li>
-                    <li><a href="/services/" class="block py-2 px-3 border-b lg:border-none hover:text-blue-600">Our Services</a></li>
-                    
-                    {% if user.is_authenticated and user.is_staff %}
-                    <li><a href="/admin/" class="block py-2 px-3 text-blue-600 font-bold hover:bg-gray-100 lg:hover:bg-transparent">Admin Dashboard</a></li>
-                    <li><a href="/logout/" class="block py-2 px-3 text-red-600 hover:bg-gray-100 lg:hover:bg-transparent">Logout</a></li>
-                    {% elif user.is_authenticated %}
-                    <li><a href="/logout/" class="block py-2 px-3 text-red-600">Logout</a></li>
-                    {% else %}
-                    {% endif %}
-                </ul>
+                <div id="nav-menu" class="hidden absolute top-20 left-0 w-full bg-white shadow-xl lg:static lg:shadow-none lg:flex lg:items-center lg:w-auto lg:bg-transparent">
+                    <ul class="flex flex-col lg:flex-row lg:space-x-10 p-8 lg:p-0">
+                        <li><a href="{% url 'home' %}" class="nav-link block py-2">Home</a></li>
+                        <li><a href="/jobs/" class="nav-link block py-2">Jobs</a></li>
+                        <li><a href="/about/" class="nav-link block py-2">About</a></li>
+                        <li><a href="/contact/" class="nav-link block py-2">Contact</a></li>
+                        <li><a href="/services/" class="nav-link block py-2">Services</a></li>
+                        
+                        {% if user.is_authenticated and user.is_staff %}
+                        <li><a href="/admin/" class="nav-link block py-2 text-blue-600 font-bold">Admin</a></li>
+                        <li><a href="/logout/" class="nav-link block py-2 text-red-400">Logout</a></li>
+                        {% elif user.is_authenticated %}
+                        <li><a href="/logout/" class="nav-link block py-2 text-red-400">Logout</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<script>
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const navIcon = document.getElementById('nav-icon');
-
-    navToggle.addEventListener('click', function() {
-        // Toggle the 'hidden' class on the menu
-        navMenu.classList.toggle('hidden');
-        
-        // Toggle the icon between ☰ and ✕ for better UX
-        if (navMenu.classList.contains('hidden')) {
-            navIcon.textContent = '☰';
-        } else {
-            navIcon.textContent = '✕';
-        }
-    });
-
-    // Close menu when a link is clicked (Mobile behavior)
-    const navLinks = document.querySelectorAll('#nav-menu a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth < 1024) { // only on mobile
-                navMenu.classList.add('hidden');
-                navIcon.textContent = '☰';
-            }
-        });
-    });
-</script>
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 py-8">
+    <main>
         {% block content %}
         {% endblock %}
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-black text-white py-8 text-center">
-        <div class="flex justify-center space-x-6 mb-4">
-            <a href="https://in.linkedin.com/" target="_blank">
-                <img src="{% static 'HRservices/media/linkedin.svg' %}" alt="LinkedIn" class="h-8 w-8 invert">
-            </a>
-            <a href="mailto:rosh.editzz@gmail.com" target="_blank">
-                <img src="{% static 'HRservices/media/mail.png' %}" alt="Email" class="h-8 w-8 invert">
-            </a>
+    <footer class="bg-white border-t border-gray-100 py-20 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex justify-center space-x-12 mb-10 opacity-40 hover:opacity-100 transition duration-500">
+                <a href="https://in.linkedin.com/" target="_blank">
+                    <img src="{% static 'HRservices/media/linkedin.svg' %}" alt="LinkedIn" class="h-5 w-5 grayscale hover:grayscale-0">
+                </a>
+                <a href="mailto:rosh.editzz@gmail.com" target="_blank">
+                    <img src="{% static 'HRservices/media/mail.png' %}" alt="Email" class="h-5 w-5 grayscale hover:grayscale-0">
+                </a>
+            </div>
+            <p class="slim-caps text-gray-400">
+                &copy; 2026 STEM HR Services · Scientific Recruitment Excellence
+            </p>
         </div>
-        <p class="text-sm">&copy; 2026 STEM HR Services</p>
     </footer>
 
-    <!-- Optional JS -->
+    <script>
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const navIcon = document.getElementById('nav-icon');
+
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('hidden');
+            navIcon.textContent = navMenu.classList.contains('hidden') ? '☰' : '✕';
+        });
+
+        // Close menu on mobile link click
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 1024) {
+                    navMenu.classList.add('hidden');
+                    navIcon.textContent = '☰';
+                }
+            });
+        });
+    </script>
+
     <script src="{% static 'HRservices/script.js' %}"></script>
 </body>
 </html>
