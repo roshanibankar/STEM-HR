@@ -2,47 +2,27 @@
 {% load static %}
 
 {% block content %}
-<header class="py-8">
-  <div class="container mx-auto text-center">
-    <img src="{% static 'HRservices/media/logo.png' %}" alt="Logo" class="mx-auto h-36">
-  </div>
+<header class="w-full"> 
+  <style>
+    .hero-section {
+      background-image: url("{% static 'HRservices/media/background.jpg' %}");
+      min-height: 60vh; /* Optional: ensures the section has good height */
+    }
+  </style>
+
+  <section class="w-full py-20 text-center bg-cover bg-center bg-no-repeat hero-section">
+    
+    <div class="container mx-auto px-4">
+      <h1 class="text-6xl font-bold mb-6 text-white">Welcome to STEM HR Services</h1>
+      <p class="text-3xl italic font-semibold mb-6 text-white">Find your next adventure here!</p>
+      <p class="text-xl mb-8 text-white max-w-3xl mx-auto">
+        Connecting top STEM talent with innovative employers. Whether you're a recent graduate or a seasoned professional, we help you take the next step in your career.
+      </p>
+      <a href="/jobs/" class="bg-blue-600 text-white py-3 px-8 rounded hover:bg-blue-700 transition inline-block">Explore Job Openings</a>
+    </div>
+  </section>
 </header>
 
-<section class="py-12 text-center">
-  <div class="container mx-auto">
-    <h1 class="text-4xl font-bold mb-4">Welcome to STEM HR Services</h1>
-    <p class="text-xl italic font-semibold mb-4">Find your next adventure here!</p>
-    <p class="text-lg mb-6">
-      Connecting top STEM talent with innovative employers. Whether you're a recent graduate or a seasoned professional, we help you take the next step in your career.
-    </p>
-    <a href="/jobs/" class="bg-blue-600 text-white py-2 px-6 rounded hover:bg-blue-700 transition">Explore Job Openings</a>
-  </div>
-</section>
-
-
-<!-- Testimonials -->
-<div class="py-12 bg-orange-500">
-  <div class="max-w-xl mx-auto text-center bg-white p-8 rounded-xl shadow-lg">
-    <h2 class="text-2xl font-bold mb-6">Our Testimonials</h2>
-    <div id="testimonialCarousel" class="carousel-inner">
-      {% for t in testimonials %}
-      <div class="carousel-item {% if forloop.first %}active{% endif %}">
-        <p class="text-gray-700 text-lg mb-2">“{{ t.testimonial }}”</p>
-        <p class="text-yellow-500 font-semibold">– {{ t.name }}</p>
-        <p class="text-gray-400 text-sm">{{ t.date }}</p>
-      </div>
-      {% empty %}
-      <div class="carousel-item active">
-        <p>No testimonials yet.</p>
-      </div>
-      {% endfor %}
-    </div>
-    <div class="flex justify-between mt-6">
-      <button data-action="prev" class="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400">&larr;</button>
-      <button data-action="next" class="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400">&rarr;</button>
-    </div>
-  </div>
-</div>
 
 <!-- About Section -->
 <section class="py-12 bg-gray-50 text-center">
@@ -57,23 +37,22 @@
 
 <!-- ===================== CLIENTS SECTION ===================== -->
 <section class="clients-section bg-white py-12 relative">
-
   <div class="container mx-auto text-center mb-12">
     <h2 class="text-3xl font-bold mb-4">Our Clients</h2>
     <p class="text-lg mb-8">We’re proud to partner with forward-thinking companies across STEM industries.</p>
 
-    <!-- CLIENT LOGOS -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 justify-center items-center max-w-4xl mx-auto">
-      <img src="{% static 'HRservices/media/client1.jpg' %}" 
-           class="client-trigger cursor-pointer hover:scale-105 transition-transform" 
+    <div class="flex flex-wrap justify-center items-center gap-8 max-w-4xl mx-auto">
+      <img src="{% static 'HRservices/media/client.jpg' %}" 
+           class="client-trigger cursor-pointer hover:scale-105 transition-transform w-32 md:w-40" 
            data-target="client-expand-1" 
            alt="Client One">
       <img src="{% static 'HRservices/media/client.jpg' %}" 
-           class="client-trigger cursor-pointer hover:scale-105 transition-transform" 
+           class="client-trigger cursor-pointer hover:scale-105 transition-transform w-32 md:w-40" 
            data-target="client-expand-2" 
            alt="Client Two">
     </div>
   </div>
+
 
   <!-- EXPANDED CLIENT PANELS -->
   <div class="clients-expanded-wrapper">
@@ -97,9 +76,9 @@
         <!-- CAROUSEL -->
         <div class="relative">
           <div class="client-carousel carousel-inner">
-            <img src="{% static 'HRservices/media/client1.jpg' %}" class="carousel-item w-full h-[28rem] object-cover">
-            <img src="{% static 'HRservices/media/client2.jpg' %}" class="carousel-item w-full h-[28rem] object-cover hidden">
-            <img src="{% static 'HRservices/media/client3.jpg' %}" class="carousel-item w-full h-[28rem] object-cover hidden">
+            <img src="{% static 'HRservices/media/client.jpg' %}" class="carousel-item w-full h-[28rem] object-cover">
+            <img src="{% static 'HRservices/media/aboutus.jpg' %}" class="carousel-item w-full h-[28rem] object-cover hidden">
+            <img src="{% static 'HRservices/media/client.jpg' %}" class="carousel-item w-full h-[28rem] object-cover hidden">
           </div>
           <button class="absolute left-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white px-2 py-1 rounded" data-action="prev">&#10094;</button>
           <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white px-2 py-1 rounded" data-action="next">&#10095;</button>
@@ -127,9 +106,9 @@
         <!-- CAROUSEL -->
         <div class="relative">
           <div class="client-carousel carousel-inner">
-            <img src="{% static 'HRservices/media/client1.jpg' %}" class="carousel-item w-full h-[28rem] object-cover">
-            <img src="{% static 'HRservices/media/client2.jpg' %}" class="carousel-item w-full h-[28rem] object-cover hidden">
-            <img src="{% static 'HRservices/media/client3.jpg' %}" class="carousel-item w-full h-[28rem] object-cover hidden">
+            <img src="{% static 'HRservices/media/client.jpg' %}" class="carousel-item w-full h-[28rem] object-cover">
+            <img src="{% static 'HRservices/media/aboutus.jpg' %}" class="carousel-item w-full h-[28rem] object-cover hidden">
+            <img src="{% static 'HRservices/media/client.jpg' %}" class="carousel-item w-full h-[28rem] object-cover hidden">
           </div>
           <button class="absolute left-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white px-2 py-1 rounded" data-action="prev">&#10094;</button>
           <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white px-2 py-1 rounded" data-action="next">&#10095;</button>
@@ -141,6 +120,27 @@
   </div>
 
 </section>
+
+
+
+<!-- Testimonials -->
+<div class="py-6 bg-orange-500"> <div class="max-w-xl mx-auto text-center bg-white p-5 rounded-xl shadow-lg"> <h2 class="text-xl font-bold mb-4">Our Testimonials</h2> <div id="testimonialCarousel" class="carousel-inner">
+      {% for t in testimonials %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <p class="text-gray-700 text-base mb-1">“{{ t.testimonial }}”</p> <p class="text-yellow-500 font-semibold text-sm">– {{ t.name }}</p>
+        <p class="text-gray-400 text-xs">{{ t.date }}</p> </div>
+      {% empty %}
+      <div class="carousel-item active">
+        <p class="text-sm">No testimonials yet.</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="flex justify-between mt-4"> <button data-action="prev" class="bg-gray-300 px-3 py-1 rounded hover:bg-gray-400 text-sm">&larr;</button>
+      <button data-action="next" class="bg-gray-300 px-3 py-1 rounded hover:bg-gray-400 text-sm">&rarr;</button>
+    </div>
+  </div>
+</div>
 
 <!-- ===================== CLIENTS SCRIPT ===================== -->
 <script>
