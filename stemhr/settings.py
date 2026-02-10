@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
 
     'django.middleware.security.SecurityMiddleware',
-    #'whitenoise.middleware.WhiteNoiseMiddleware', 
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -119,6 +119,21 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles' # WhiteNoise will serve from here
 
+
+# 1. Define where your source images/CSS are (in your app folders)
+STATICFILES_DIRS = [
+    BASE_DIR / "static", # If you have a global static folder
+]
+
+# 2. Define where Django will GATHER them for Render to see
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# 3. Tell WhiteNoise to handle the heavy lifting (compression & caching)
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
